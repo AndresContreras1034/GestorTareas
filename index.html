@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Aplicación web para gestionar tareas, con estadísticas, filtros y temas dinámicos.">
+  <title>📋 Gestor de Tareas</title>
+  <link rel="icon" href="assets/icons/check.svg" />
+
+  <!-- Tema dinámico -->
+  <link id="tema-actual" rel="stylesheet" href="assets/themes/light.css" />
+
+  <!-- Estilos generales -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header class="navbar" role="banner">
+    <h1>📋 Gestor de Tareas</h1>
+    <button id="toggle-tema" title="Cambiar tema" aria-label="Cambiar entre modo claro y oscuro">
+      <img src="assets/icons/moon.svg" alt="Icono de tema" />
+    </button>
+  </header>
+
+  <main class="fade-in" role="main">
+    
+    <!-- PANEL DE ESTADÍSTICAS -->
+    <section class="panel-estadisticas" aria-labelledby="titulo-estadisticas">
+      <h2 id="titulo-estadisticas" hidden>Estadísticas generales</h2>
+      <div class="stat-card">
+        <img src="assets/icons/stats.svg" alt="Icono total tareas" />
+        <span>Total: <strong id="total-tareas">0</strong></span>
+      </div>
+      <div class="stat-card">
+        <img src="assets/icons/check.svg" alt="Icono tareas completadas" />
+        <span>Hechas: <strong id="tareas-hechas">0</strong></span>
+      </div>
+      <div class="stat-card">
+        <img src="assets/icons/delete.svg" alt="Icono tareas pendientes" />
+        <span>Pendientes: <strong id="tareas-pendientes">0</strong></span>
+      </div>
+    </section>
+
+    <hr />
+
+    <!-- FILTROS Y BÚSQUEDA -->
+    <section class="panel-filtros" aria-label="Panel de filtros y búsqueda">
+      <input type="text" id="buscador" placeholder="🔍 Buscar tarea..." aria-label="Buscar tarea por nombre o descripción" autocomplete="off" />
+
+      <select id="filtro-prioridad" aria-label="Filtrar por prioridad">
+        <option value="">Filtrar por prioridad</option>
+        <option value="alta">Alta 🔥</option>
+        <option value="media">Media ⚠️</option>
+        <option value="baja">Baja 🟢</option>
+      </select>
+
+      <select id="filtro-estado" aria-label="Filtrar por estado">
+        <option value="">Filtrar por estado</option>
+        <option value="pendiente">Pendientes</option>
+        <option value="completada">Completadas</option>
+      </select>
+    </section>
+
+    <hr />
+
+    <!-- FORMULARIO DE NUEVA TAREA -->
+    <section class="formulario" aria-labelledby="titulo-nueva-tarea">
+      <h2 id="titulo-nueva-tarea">➕ Nueva Tarea</h2>
+      <form id="form-tarea" aria-describedby="ayuda-formulario">
+        <label for="titulo">Título</label>
+        <input type="text" id="titulo" placeholder="Título de la tarea" required autocomplete="off" />
+
+        <label for="descripcion">Descripción</label>
+        <textarea id="descripcion" placeholder="Descripción detallada..."></textarea>
+
+        <div class="grupo-form">
+          <label for="fecha">Fecha</label>
+          <input type="date" id="fecha" />
+
+          <label for="prioridad">Prioridad</label>
+          <select id="prioridad">
+            <option value="">Seleccionar prioridad</option>
+            <option value="alta">Alta 🔥</option>
+            <option value="media">Media ⚠️</option>
+            <option value="baja">Baja 🟢</option>
+          </select>
+
+          <label for="categoria">Categoría</label>
+          <input type="text" id="categoria" placeholder="Opcional" />
+        </div>
+
+        <button type="submit">✅ Agregar Tarea</button>
+        <p id="ayuda-formulario" hidden>Completa los campos para añadir una nueva tarea a tu lista.</p>
+      </form>
+    </section>
+
+    <hr />
+
+    <!-- LISTADO DE TAREAS -->
+    <section class="tareas" aria-labelledby="titulo-lista">
+      <h2 id="titulo-lista">📌 Tus Tareas</h2>
+      <ul id="lista-tareas" role="list">
+        <!-- Las tareas se insertarán aquí -->
+      </ul>
+    </section>
+
+    <hr />
+
+    <!-- GRÁFICO DE ESTADÍSTICAS -->
+    <section class="panel-graficas" aria-labelledby="titulo-grafico">
+      <h2 id="titulo-grafico" style="text-align: center;">📈 Progreso general</h2>
+      <canvas id="graficoProgreso" role="img" aria-label="Gráfico de tareas completadas vs pendientes"></canvas>
+    </section>
+
+  </main>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="script.js"></script>
+
+  <noscript>
+    <p style="text-align:center; color: red;">⚠️ Esta aplicación requiere JavaScript para funcionar correctamente.</p>
+  </noscript>
+</body>
+</html>

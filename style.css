@@ -1,0 +1,307 @@
+/* RESET GLOBAL */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* PALETA DE COLORES (usar con CSS variables en los temas) */
+  
+  /* BODY GENERAL */
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    min-height: 100vh;
+  }
+  
+  /* NAVBAR */
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 900px;
+    margin-bottom: 20px;
+  }
+  
+  .navbar h1 {
+    font-size: 1.8rem;
+    color: var(--color-primary);
+    font-weight: 700;
+  }
+  
+  .navbar button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 6px;
+    border-radius: 50%;
+    transition: background-color 0.3s ease;
+  }
+  
+  .navbar button:hover {
+    background-color: var(--color-hover);
+  }
+  
+  .navbar img {
+    width: 24px;
+    height: 24px;
+  }
+  
+  /* PANEL DE ESTADÍSTICAS */
+  .panel-estadisticas {
+    display: flex;
+    gap: 20px;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width: 100%;
+    max-width: 900px;
+    margin-bottom: 20px;
+  }
+  
+  .stat-card {
+    flex: 1;
+    min-width: 150px;
+    background: var(--color-card);
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s;
+  }
+  
+  .stat-card:hover {
+    transform: translateY(-2px);
+  }
+  
+  .stat-card img {
+    width: 28px;
+    height: 28px;
+  }
+  
+  /* FILTROS */
+  .panel-filtros {
+    width: 100%;
+    max-width: 900px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+  }
+  
+  .panel-filtros input,
+  .panel-filtros select {
+    flex: 1;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    background-color: var(--color-card);
+    color: var(--color-text);
+    outline: none;
+    transition: border 0.2s ease;
+  }
+  
+  .panel-filtros input:focus,
+  .panel-filtros select:focus {
+    border-color: var(--color-primary);
+  }
+  
+  /* FORMULARIO */
+  .formulario {
+    width: 100%;
+    max-width: 900px;
+    background: var(--color-card);
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    padding: 25px;
+    margin-bottom: 20px;
+  }
+  
+  .formulario h2 {
+    margin-bottom: 15px;
+    color: var(--color-primary);
+    font-size: 1.4rem;
+  }
+  
+  #form-tarea {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  #form-tarea input,
+  #form-tarea textarea,
+  #form-tarea select {
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    resize: vertical;
+    transition: border 0.2s;
+  }
+  
+  #form-tarea input:focus,
+  #form-tarea textarea:focus,
+  #form-tarea select:focus {
+    border-color: var(--color-primary);
+  }
+  
+  .grupo-form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  
+  .grupo-form input,
+  .grupo-form select {
+    flex: 1;
+  }
+  
+  #form-tarea button {
+    align-self: flex-start;
+    padding: 10px 20px;
+    background-color: var(--color-primary);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  #form-tarea button:hover {
+    background-color: var(--color-primary-dark);
+  }
+  
+  /* LISTADO DE TAREAS */
+  .tareas {
+    width: 100%;
+    max-width: 900px;
+  }
+  
+  .tareas h2 {
+    margin-bottom: 10px;
+    font-size: 1.3rem;
+    color: var(--color-primary);
+  }
+  
+  #lista-tareas {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .tarea {
+    background-color: var(--color-card);
+    border: 1px solid var(--color-border);
+    border-radius: 10px;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: transform 0.2s ease;
+  }
+  
+  .tarea:hover {
+    transform: scale(1.01);
+  }
+  
+  .tarea-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  
+  .tarea-titulo {
+    font-weight: 600;
+    font-size: 1.1rem;
+  }
+  
+  .tarea-prioridad-alta {
+    color: #e74c3c;
+  }
+  
+  .tarea-prioridad-media {
+    color: #f39c12;
+  }
+  
+  .tarea-prioridad-baja {
+    color: #2ecc71;
+  }
+  
+  .tarea-controles {
+    display: flex;
+    align-items: center;
+  }
+  
+  .tarea-controles button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin-left: 10px;
+    padding: 4px;
+    border-radius: 4px;
+    transition: background-color 0.2s ease;
+  }
+  
+  .tarea-controles button:hover {
+    background-color: var(--color-hover);
+  }
+  
+  .tarea-controles img {
+    width: 20px;
+    height: 20px;
+  }
+  
+  /* MENSAJE VACÍO */
+  .tarea-vacia {
+    text-align: center;
+    padding: 20px;
+    color: var(--color-muted);
+    font-style: italic;
+  }
+  
+  /* PANEL DE GRÁFICAS */
+  .panel-graficas {
+    width: 100%;
+    max-width: 900px;
+    margin-top: 30px;
+    background-color: var(--color-card);
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.05);
+  }
+  
+  .panel-graficas canvas {
+    width: 100% !important;
+    max-height: 300px;
+    height: 250px !important;
+  }
+  
+  /* RESPONSIVE */
+  @media (max-width: 600px) {
+    .panel-estadisticas,
+    .panel-filtros,
+    .grupo-form {
+      flex-direction: column;
+    }
+  
+    .navbar {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+  
